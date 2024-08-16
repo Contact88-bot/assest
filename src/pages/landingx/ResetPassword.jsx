@@ -42,7 +42,7 @@ const ResetPassword = () => {
       return notify("Enter your email");
     }
 
-    fetch(`http://rest.assestproxy.com/forgot-password/${email}`, {
+    fetch(`https://rest.assestproxy.com/forgot-password/${email}`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),

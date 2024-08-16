@@ -77,7 +77,7 @@ const Deposit = () => {
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
-    fetch("http://rest.assestproxy.com/deposit", {
+    fetch("https://rest.assestproxy.com/deposit", {
       signal: signal,
     }).then((response) => response.json());
 

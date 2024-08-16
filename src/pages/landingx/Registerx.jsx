@@ -117,7 +117,7 @@ function Registerx() {
     }
 
     if (isValid) {
-      fetch("http://rest.assestproxy.com/sign-up", {
+      fetch("https://rest.assestproxy.com/sign-up", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

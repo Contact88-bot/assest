@@ -15,7 +15,7 @@ const UserDep = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://rest.assestproxy.com/deposits", {
+    fetch("https://rest.assestproxy.com/deposits", {
       method: "get",
       headers: { "Content-Type": "application/json" },
     })

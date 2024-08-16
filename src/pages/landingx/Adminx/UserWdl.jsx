@@ -20,7 +20,7 @@ const UserWdl = ({ user }) => {
     notify();
     const { email } = user;
     const isNotThere = await (
-      await fetch("http://rest.assestproxy.com/withdraw/approve", {
+      await fetch("https://rest.assestproxy.com/withdraw/approve", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, pdgwdl: user.pdgwdl }),
@@ -43,7 +43,7 @@ const UserWdl = ({ user }) => {
     notify();
     const { email } = user;
     const isNotThere = await (
-      await fetch("http://rest.assestproxy.com/withdraw/decline", {
+      await fetch("https://rest.assestproxy.com/withdraw/decline", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, pdgwdl: user.pdgwdl }),

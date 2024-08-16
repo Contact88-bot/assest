@@ -27,7 +27,7 @@ const Dashboardx = ({ login }) => {
       login = false;
       return;
     }
-    fetch("http://rest.assestproxy.com/get-profile", {
+    fetch("https://rest.assestproxy.com/get-profile", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
