@@ -26,7 +26,7 @@ const DepApp = ({ user }) => {
     notify();
     const { email } = user;
     const isNotThere = await (
-      await fetch("https://rest.assestproxy.com/deposit/approve", {
+      await fetch("http://rest.assestproxy.com/deposit/approve", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, pdgwdl: user.pdgwdl }),
@@ -49,7 +49,7 @@ const DepApp = ({ user }) => {
     notify();
     const { email } = user;
     const isNotThere = await (
-      await fetch("https://rest.assestproxy.com/deposit/decline", {
+      await fetch("http://rest.assestproxy.com/deposit/decline", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, pdgwdl: user.pdgwdl }),

@@ -37,7 +37,7 @@ const Loginx = () => {
     event.preventDefault();
     // console.log(`em ${email}   ${password}`);
     setMsg({});
-    fetch("https://rest.assestproxy.com/login", {
+    fetch("http://rest.assestproxy.com/login", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -84,7 +84,7 @@ const Loginx = () => {
 
           dispatch(setUserDetails(user));
           // window.location.assign('http://enefti-six.vercel.app/user/dashboard')
-          // https://rest.assestproxy.com/login
+          // http://rest.assestproxy.com/login
           navigate("/user/dashboard", {
             replace: true,
             state: { login: true },

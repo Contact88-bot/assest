@@ -15,7 +15,7 @@ const Users = ({ user, notify }) => {
 
   const toggleLock = async () => {
     try {
-      const res = await fetch('https://rest.assestproxy.com/block', {
+      const res = await fetch('http://rest.assestproxy.com/block', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const Users = ({ user, notify }) => {
   const onDel = async () => {
     const { email } = user;
     const isNotThere = await fetch(
-      "https://rest.assestproxy.com/deleteuser",
+      "http://rest.assestproxy.com/deleteuser",
       {
         method: "post",
         headers: { "Content-Type": "application/json" },

@@ -43,7 +43,7 @@ const Addacct = () => {
       return notify("Enter your email");
     }
 
-    fetch("https://rest.assestproxy.com/address", {
+    fetch("http://rest.assestproxy.com/address", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

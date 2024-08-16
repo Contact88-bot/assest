@@ -58,7 +58,7 @@ const ConfirmWld = () => {
     // }
 
     const response = await fetch(
-      "https://rest.assestproxy.com/withdraw",
+      "http://rest.assestproxy.com/withdraw",
       {
         method: "post",
         headers: { "Content-Type": "application/json" },

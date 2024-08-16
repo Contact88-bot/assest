@@ -41,7 +41,7 @@ const Newpwd = () => {
       });
     };
 
-    fetch("https://rest.assestproxy.com/changePassword", {
+    fetch("http://rest.assestproxy.com/changePassword", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

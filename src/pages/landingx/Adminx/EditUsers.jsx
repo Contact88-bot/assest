@@ -31,7 +31,7 @@ const EditUsers = () => {
     const { email, accbal, depos, name, wdl, profits, phone } = user;
 
     const iseditUser = await fetch(
-      "https://rest.assestproxy.com/users/:id",
+      "http://rest.assestproxy.com/users/:id",
       {
         method: "put",
         headers: { "Content-Type": "application/json" },
@@ -56,7 +56,7 @@ const EditUsers = () => {
   const onDel = async () => {
     const { email } = user;
     const isNotThere = await fetch(
-      "https://rest.assestproxy.com/deleteuser",
+      "http://rest.assestproxy.com/deleteuser",
       {
         method: "post",
         headers: { "Content-Type": "application/json" },
