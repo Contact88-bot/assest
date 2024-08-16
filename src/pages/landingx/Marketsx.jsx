@@ -26,7 +26,7 @@ const Market = () => {
         <section className=" text-black px-3 md:px-24 lg:px-24">
           <div className="flex flex-col items-center text-centerw-full">
             <h1 className="text-lg text-center lg:text-3xl mb-3 mt-16 font-bold">
-              A <span className="text-[#5474c6]">Relationship</span> on your
+              A <span className="text-[#000080]">Relationship</span> on your
               terms.
             </h1>
             <p className="pb-6 text-sm lg:text-lg text-center text-slate-400 tracking-normal lg:tracking-wider lg:w-7/12 font-normal">

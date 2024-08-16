@@ -27,7 +27,7 @@ const Contact = () => {
         <section class="text-black px-3 md:px-24 lg:px-24 default_cursor_cs">
           <div class="flex flex-col items-center text-center w-full default_cursor_cs">
             <h1 class="text-lg text-center lg:text-3xl mt-16 font-bold default_cursor_cs">
-              Do not hesitate to<span class="text-[#5474c6]"> reach out.</span>
+              Do not hesitate to<span class="text-[#000080]"> reach out.</span>
             </h1>
             <p class="pb-6 text-sm lg:text-xl text-center text-slate-400 tracking-normal lg:tracking-wider lg:w-7/12 font-normal default_cursor_cs">
               Just fill in the contact form here and we’ll be sure to reply as
@@ -58,7 +58,7 @@ const Contact = () => {
                 placeholder="message"
                 class="px-3 py-2 border border-gray-400 shadow rounded  w-66 md:w-96 mt-4"
               ></textarea>
-              <button class="bg-[#5474c6] text-white font-medium py-2 my-6">
+              <button class="bg-[#000080] text-white font-medium py-2 my-6">
                 SEND MESSAGE
               </button>
             </form>
@@ -74,7 +74,7 @@ const Contact = () => {
             </div>
             <div class="py-4 bg-bla_ck text-black font-medium flex flex-col P mt-3 px-3 default_cursor_cs">
               <div class="flex py-2 items-center default_cursor_cs">
-                <p class="rounded-full w-10 h-10 flex justify-center items-center bg-[#5474c6] mr-4">
+                <p class="rounded-full w-10 h-10 flex justify-center items-center bg-[#000080] mr-4">
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
@@ -88,10 +88,10 @@ const Contact = () => {
                     <path d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"></path>
                   </svg>
                 </p>
-                <span class="text-sm mb-3">support@octatrade.net</span>
+                <span class="text-sm mb-3">support@assestproxy.com</span>
               </div>
               <div class="flex py-2 items-center default_cursor_cs">
-                <p class="rounded-full w-10 h-10 flex justify-center items-center bg-[#5474c6] mr-4 default_cursor_cs">
+                <p class="rounded-full w-10 h-10 flex justify-center items-center bg-[#000080] mr-4 default_cursor_cs">
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
@@ -105,10 +105,10 @@ const Contact = () => {
                     <path d="M877.1 238.7L770.6 132.3c-13-13-30.4-20.3-48.8-20.3s-35.8 7.2-48.8 20.3L558.3 246.8c-13 13-20.3 30.5-20.3 48.9 0 18.5 7.2 35.8 20.3 48.9l89.6 89.7a405.46 405.46 0 0 1-86.4 127.3c-36.7 36.9-79.6 66-127.2 86.6l-89.6-89.7c-13-13-30.4-20.3-48.8-20.3a68.2 68.2 0 0 0-48.8 20.3L132.3 673c-13 13-20.3 30.5-20.3 48.9 0 18.5 7.2 35.8 20.3 48.9l106.4 106.4c22.2 22.2 52.8 34.9 84.2 34.9 6.5 0 12.8-.5 19.2-1.6 132.4-21.8 263.8-92.3 369.9-198.3C818 606 888.4 474.6 910.4 342.1c6.3-37.6-6.3-76.3-33.3-103.4zm-37.6 91.5c-19.5 117.9-82.9 235.5-178.4 331s-213 158.9-330.9 178.4c-14.8 2.5-30-2.5-40.8-13.2L184.9 721.9 295.7 611l119.8 120 .9.9 21.6-8a481.29 481.29 0 0 0 285.7-285.8l8-21.6-120.8-120.7 110.8-110.9 104.5 104.5c10.8 10.8 15.8 26 13.3 40.8z"></path>
                   </svg>
                 </p>
-                <span class="text-sm mb-3">+1(888)OCTATRADE</span>
+                <span class="text-sm mb-3">+18709023430</span>
               </div>
               <div class="flex py-2 items-center">
-                <p class="rounded-full w-10 h-10 flex justify-center items-center bg-[#5474c6] mr-4 default_cursor_cs">
+                <p class="rounded-full w-10 h-10 flex justify-center items-center bg-[#000080] mr-4 default_cursor_cs">
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
@@ -150,6 +150,6 @@ const Contact = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Contact;

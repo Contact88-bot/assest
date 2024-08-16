@@ -26,6 +26,7 @@ import Dashboardx from "./pages/landingx/Dashboard/Dashboardx";
 import Deposit from "./pages/landingx/Dashboard/Deposit";
 import Withdraw from "./pages/landingx/Dashboard/Withdraw";
 import Profile from "./pages/landingx/Dashboard/Profile";
+import BtcWld from "./pages/landingx/Dashboard/BtcWld";
 import Withdrawal from "./pages/landingx/Adminx/Withdrawal";
 import EditUsers from "./pages/landingx/Adminx/EditUsers";
 import AllUsers from "./pages/landingx/Adminx/AllUsers";
@@ -35,10 +36,13 @@ import ResetPassword from "./pages/landingx/ResetPassword";
 import TC from "./pages/landingx/Dashboard/T&C";
 import ConfirmWld from "./pages/landingx/Dashboard/ConfirmWld";
 import { useSelector } from "react-redux";
+import Newpwd from "./pages/landingx/Newpwd";
+import Addacct from "./pages/landingx/Dashboard/Addacct";
+import Blocked from "./pages/landingx/Blocked";
 
 const App = () => {
-  const { email } = useSelector((state) => state.auth.user_details);
-  const props = { email };
+  // const { email } = useSelector((state) => state.auth.user_details);
+  // const props = { email };
 
   return (
     <div className="">
@@ -51,6 +55,7 @@ const App = () => {
         <Route path="/public/register" element={<Registerx />} />
         <Route path="/public/activate" element={<Activate />} />
         <Route path="/on-activate/:email" element={<SetActivate />} />
+
         {/* <Route
           path="user/dashboard"
           render={(props) => <Dashboardx {...props} />}
@@ -62,11 +67,14 @@ const App = () => {
         <Route path="/admin/users" element={<AllUsers />} />
         <Route path="/admin/withdrawals" element={<Withdrawal />} />
         <Route path="/admin/edituser" element={<EditUsers />} />
+        <Route path="/user/blocked" element={<Blocked/>} />
         <Route path="/admin/deposits" element={<UserDep />} />
         <Route path="/public/forgot-password" element={<ResetPassword />} />
+        <Route path="/xids4547/:email" element={<Newpwd />} />
         <Route path="/user/T&C" element={<TC />} />
         <Route path="/user/withdrawal" element={<ConfirmWld />} />
-
+        <Route path="/user/btc/withdrawal" element={<BtcWld />} />
+        <Route path="/user/add-account" element={<Addacct /> } />
         {/* <Route path="/collections" element={<Collections />} />
             <Route path="/login" element={<SignIn />} />
             <Route path="/register" element={<Signup />} />

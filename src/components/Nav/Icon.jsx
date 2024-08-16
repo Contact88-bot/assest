@@ -1,21 +1,20 @@
 import { Link } from "react-router-dom";
-import { TbTrademark } from "react-icons/tb";
+import { FaTrademark } from "react-icons/fa";
 const Icon = () => {
   return (
     <>
-      <Link
-        to="/"
-        className="rounded-md w-32 pointer py-2 relative px- flex justify-center text-white updpercase m-3 font-bold items-center text-[18px]"
-      >
-        Octa
-        <span className="text-sm ml- rounded bg-blue-600 px-1 font-extrabold font-mono text-black">
-          trade
+      <Link className="relative" to="/">
+        <span className="rounded-md font-oswald tracking-widest w-32 pointer pt-2  px- flex justify-center text-white updpercase  font-bold items-center text-[18px]">
+          ASSET
+        </span>
+        <span className="flex justify-center text-white uppercase text-sm rounded bg-blue-600 font-extrabold font-mono text-blajck">
+          Proxy
         </span>
         <span
-          className=" text-white bdg-white absolute right-1.5 pt-1 top-0.5"
+          className=" text-white bdg-white absolute right-3 pt-2 top-3"
           style={{ fodntSize: "3px" }}
         >
-          <TbTrademark />
+          <FaTrademark />
         </span>
       </Link>
     </>

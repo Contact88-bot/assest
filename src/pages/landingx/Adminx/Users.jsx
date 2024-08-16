@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import { FiEdit } from "react-icons/fi";
+import { FaUserLock } from "react-icons/fa";
+import { FaUnlock } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { setAdUser } from "../../../Redux/action";
 import { useDispatch } from "react-redux";
@@ -8,7 +10,31 @@ import { useNavigate } from "react-router-dom";
 const Users = ({ user, notify }) => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  // let history = useHistory();
+
+  const [isLocked, setIsLocked] = useState(false);
+
+  const toggleLock = async () => {
+    try {
+      const res = await fetch('https://rest.assestproxy.com/block', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: user.email }), 
+      });
+
+      if (res.ok) {
+        setIsLocked(prevState => !prevState); 
+      } else {
+        console.error('Failed to toggle account status');
+      }
+    } catch (error) {
+      console.error('Error occurred while toggling account status:', error);
+    }
+  };
+
+
+  
   const Edituser = () => {
     console.log("usersssssssssss");
     dispatch(setAdUser(user));
@@ -18,7 +44,7 @@ const Users = ({ user, notify }) => {
   const onDel = async () => {
     const { email } = user;
     const isNotThere = await fetch(
-      "https://zany-gold-perch-sock.cyclic.app/users",
+      "https://rest.assestproxy.com/deleteuser",
       {
         method: "post",
         headers: { "Content-Type": "application/json" },
@@ -36,8 +62,17 @@ const Users = ({ user, notify }) => {
         <p>{`Name: ${user.name}`}</p>
         <p>{`Email: ${user.email}`}</p>
         <p>{`Phone: ${user.phone}`}</p>
+        <p>{`Btc: ${user.btc.slice(0, 10)}`}..</p>
       </div>
-      <div className="text-gray-600 ml-5 flex lg:justify-between self-end gap-2">
+      
+      <div className="text-gray-600 ml-5 flex lg:justify-between self-end md:gap-5 gap-3">
+      <div onClick={toggleLock}>
+      {isLocked ? (
+        <FaUserLock className="text-red-600 cursor-pointer" size={34} />
+      ) : (
+        <FaUnlock className="text-green-600 cursor-pointer" size={34} />
+      )}
+    </div>
         <FiEdit
           className="text-blue-300 cursor-pointer"
           size={34}

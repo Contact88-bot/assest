@@ -11,7 +11,7 @@ function SetActivate() {
   email = email.slice(0, email.length - 1);
   console.log({ email });
   const onActivate = () => {
-    fetch(`https://zany-gold-perch-sock.cyclic.app/activate/${email}`, {
+    fetch(`https://gorgeous-hen-jacket.cyclic.cloud/activate/${email}`, {
       method: "get",
       headers: { "Content-Type": "application/json" },
     })

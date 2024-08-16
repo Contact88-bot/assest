@@ -37,7 +37,7 @@ const Loginx = () => {
     event.preventDefault();
     // console.log(`em ${email}   ${password}`);
     setMsg({});
-    fetch("https://zany-gold-perch-sock.cyclic.app/login", {
+    fetch("https://rest.assestproxy.com/login", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -67,16 +67,28 @@ const Loginx = () => {
         const { token } = res;
         const { user } = res;
 
+        if (user.blocked) {
+          // Prevent login for blocked users
+          console.log("This account has been blocked. Cannot login.");
+          // Optionally, display a message to the user informing them about the blocked status
+          navigate("/user/blocked", { replace: true, state: { login: false }, });
+          return;
+        }
+
         if (token !== undefined) {
           if (user.role === "admin") {
             navigate("/admin/users", { replace: true });
             return;
           }
           dispatch(setToken(token));
+
           dispatch(setUserDetails(user));
           // window.location.assign('http://enefti-six.vercel.app/user/dashboard')
-          // https://zany-gold-perch-sock.cyclic.app/login
-          navigate("/user/dashboard", { replace: true });
+          // https://rest.assestproxy.com/login
+          navigate("/user/dashboard", {
+            replace: true,
+            state: { login: true },
+          });
         }
       })
       .catch((err) => console.log(err));
@@ -86,7 +98,7 @@ const Loginx = () => {
     <div className="flex flex-col h-screen bg-[#26313f3a] shadow-md rounded  text-slate-700 items-center px-3 pt-3">
       <div className="lg:mx-auto w-full lg:w-10/12 px-3 lg:px-12">
         <div className="flex items-center justify-center">
-          <span className="bg-black flex items-center mt-5 w-32 lg:w-36 rounded-xl px-0 justify-center mb-6">
+          <span className="bg-black flex items-center mt-5 w-32 lg:w-40 lg:pr-2 rounded-xl px-0 justify-center mb-6">
             <Icon />
           </span>
         </div>
@@ -109,7 +121,9 @@ const Loginx = () => {
                   onChange={onEmailChange}
                 />
               </div>
-              <div className="text-center text-red-400 text-sm"></div>
+              <div className="text-center text-red-400 text-sm">
+                {msg.email}
+              </div>
               <div className="mt-3">
                 <div className="text-left font-semibold pb-1 text-xs lg:text-sm">
                   Password <span className="text-red-600">*</span>

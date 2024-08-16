@@ -71,8 +71,8 @@ const Footer = () => {
           <div className="px-5 py-12 mx-auto max-w-7xl lg:py-16 md:px-12 lg:px-20 default_cursor_cs">
             <div className="xl:grid xl:grid-cols-3 xl:gap-8 default_cursor_cs">
               <div className="space-y-8 xl:col-span-1">
-                <span className="flex items-center w-28 lg:w-36 rounded-md text-secondary justify-center mb-6">
-                 <Icon/>
+                <span className="flex items-center bg-blgack p-0 w-28 lg:w-36 rounded-xl justify-center mb-6">
+                  <Icon />
                 </span>
                 <p className="w-1/2 mt-2 text-sm text-whtie">
                   We have licenses provide to services Worldwide.
@@ -221,7 +221,7 @@ const Footer = () => {
                   className="mx-2 text-blue-500 hover:text-white"
                   rel="noopener noreferrer"
                 >
-                  Octatrade.net
+                  assestproxy.com
                 </Link>
                 . Since 2014
               </span>

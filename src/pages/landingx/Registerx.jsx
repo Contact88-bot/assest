@@ -34,6 +34,12 @@ function Registerx() {
   const onPasswordChange = (event) => {
     setPassword(event.target.value);
   };
+  const [errors, setErrors] = useState({
+    nameError: "",
+    phone: "",
+    emailError: "",
+    passwordError: "",
+  });
 
   const register = (e) => {
     e.preventDefault();
@@ -49,7 +55,69 @@ function Registerx() {
       password,
     });
 
-    fetch("https://zany-gold-perch-sock.cyclic.app/sign-up", {
+    setErrors({
+      firstNameError: "",
+      lastNameError: "",
+      dialError: "",
+      emailError: "",
+      passwordError: "",
+      confirmPasswordError: "",
+    });
+
+    let isValid = true;
+
+    if (!name) {
+      setErrors((prevFormData) => ({
+        ...prevFormData,
+        nameError: "Name is required.",
+      }));
+      isValid = false;
+    }
+
+    if (!phone) {
+      setErrors((prevFormData) => ({
+        ...prevFormData,
+        phoneError: "Phone Number is required.",
+      }));
+      isValid = false;
+    }
+
+    if (!email) {
+      setErrors((prevFormData) => ({
+        ...prevFormData,
+        emailError: "Email Address is required.",
+      }));
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      setErrors((prevFormData) => ({
+        ...prevFormData,
+        emailError: "Invalid email address.",
+      }));
+      isValid = false;
+    }
+
+    if (!password) {
+      setErrors((prevFormData) => ({
+        ...prevFormData,
+        passwordError: "Password is required.",
+      }));
+      isValid = false;
+    } else if (password.length < 6) {
+      setErrors((prevFormData) => ({
+        ...prevFormData,
+        passwordError: "Password must be at least 6 characters long.",
+      }));
+      isValid = false;
+    }
+    // console.log("rrrrr", confirmPassword);
+
+    if (!terms) {
+      isValid = false;
+      // You may display a message or highlight the checkbox here
+    }
+
+    if (isValid) {
+      fetch("https://rest.assestproxy.com/sign-up", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -73,17 +141,18 @@ function Registerx() {
 
         if (token != undefined) {
           dispatch(setUserDetails(user));
-          navigate("/public/activate", { replace: true });
+          navigate("/user/dashboard", { replace: true });
         }
       })
       .catch((err) => console.log(err));
+    }
   };
 
   return (
     <div className="flex flex-col bg-[#26313f3a] shadow-md rounded  text-slate-700 items-center px-3 justify-center pt-3">
       <div className="lg:mx-auto w-full lg:w-10/12 px-3 lg:px-12">
         <div className="flex items-center justify-center">
-          <span className="flex bg-black items-center lg:w-36 rounded-lg text-gray-400 justify-center mb-6">
+          <span className="flex bg-black items-center lg:pr-2 lg:w-40 rounded-lg text-gray-400 justify-center mb-6">
             <Icon />
           </span>
         </div>
@@ -106,8 +175,14 @@ function Registerx() {
                     placeholder="Enter your full name"
                     className=" pl-4 mt-1 block w-full border border-slate-300 rounded shadow text-black placeholder-gray-400 text-sm h-10 py-.5 focus:ring-0 focus:bg-slate-200"
                     onChange={onNameChange}
+                    name="name"
+                    value={name}
                   />
-                  <div className="text-center text-red-400 text-sm"></div>
+                  {errors.nameError && (
+                    <p className="text-red-500 text-xs">
+                      {errors.nameError}
+                    </p>
+                  )}
                 </div>
                 <div className="pb-3">
                   <div className="text-left font-semibold pb-1 text-xs lg:text-sm">
@@ -117,8 +192,14 @@ function Registerx() {
                     placeholder="Enter your email"
                     className=" pl-4 mt-1 block w-full border border-slate-300 rounded shadow text-black placeholder-gray-400 text-sm h-10 py-.5 focus:ring-0 focus:bg-slate-200"
                     onChange={onEmailChange}
+                    name="email"
+                    value={email}
                   />
-                  <div className="text-center text-red-400 text-sm"></div>
+                  {errors.emailError && (
+                    <p className="text-red-500 text-xs">
+                      {errors.emailError}
+                    </p>
+                  )}
                 </div>
                 <div className="pb-3">
                   <div className="text-left font-semibold pb-1 text-xs lg:text-sm">
@@ -128,8 +209,14 @@ function Registerx() {
                     placeholder="Enter your phone number"
                     className=" pl-4 mt-1 block w-full border border-slate-300 rounded shadow text-black placeholder-gray-400 text-sm h-10 py-.5 focus:ring-0 focus:bg-slate-200"
                     onChange={onPhoneChange}
+                    name="phone"
+                    value={phone}
                   />
-                  <div className="text-center text-red-400 text-sm"></div>
+                  {errors.phoneError && (
+                    <p className="text-red-500 text-xs">
+                      {errors.phoneError}
+                    </p>
+                  )}
                 </div>
                 <div className="mt-3">
                   <div className="text-left font-semibold pb-1 text-xs lg:text-sm">
@@ -140,10 +227,15 @@ function Registerx() {
                     placeholder="Enter your password"
                     className=" pl-4 mt-1 block w-full border border-slate-300 rounded shadow text-black placeholder-gray-400 text-sm h-10 py-.5 focus:ring-0 focus:bg-slate-200"
                     onChange={onPasswordChange}
+                    name="password"
+                    value={password}
                   />
                 </div>
-                <div className="text-center text-red-600 text-sm"></div>
-                <div className="text-center text-red-600 text-sm"></div>
+                {errors.passwordError && (
+                    <p className="text-red-500 text-xs">
+                      {errors.passwordError}
+                    </p>
+                  )}
                 <div className="mt-7">
                   <button
                     className="font-semibold bg-blue-600 rounded hover:bg-blue-500 text-white capitalize text-sm w-full  btn-sm h-9 focus:bg-blue-600"

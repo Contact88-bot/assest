@@ -42,7 +42,7 @@ const About = () => {
 
         <section class="flex flex-col md:flex-row justify-center px-3 md:justify-around lg:px-28 default_cursor_cs">
           <div class="flex flex-row">
-            <p class="rounded-full w-10 h-10 flex justify-center items-center bg-slate-600 flex1">
+            <p class="rounded-full w-10 h-10 flex justify-center items-center bg-blue-900 flex1">
               <svg
                 stroke="currentColor"
                 fill="currentColor"
@@ -71,7 +71,7 @@ const About = () => {
             </p>
           </div>
           <div class="flex flex-row default_cursor_cs">
-            <p class="rounded-full w-10 h-10 flex justify-center items-center bg-slate-600 flex1 default_cursor_cs">
+            <p class="rounded-full w-10 h-10 flex justify-center items-center bg-blue-900 flex1 default_cursor_cs">
               <svg
                 stroke="currentColor"
                 fill="currentColor"
@@ -100,7 +100,7 @@ const About = () => {
             </p>
           </div>
           <div class="flex flex-row default_cursor_cs">
-            <p class="rounded-full w-10 h-10 flex justify-center items-center bg-slate-600 flex1 default_cursor_cs">
+            <p class="rounded-full w-10 h-10 flex justify-center items-center bg-blue-900 flex1 default_cursor_cs">
               <svg
                 stroke="currentColor"
                 fill="currentColor"

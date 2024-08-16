@@ -1,27 +1,28 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import Icon from "../../../components/Nav/Icon";
 import { Link, useNavigate } from "react-router-dom";
-import { setUserDetails, setToken } from "../../Redux/action";
-import Icon from "../../components/Nav/Icon";
+import { setUserDetails, setToken } from "../../../Redux/action";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
+import "react-toastify/dist/ReactToastify.css";
 
-import bultpay from "../../images/bultpay3.png";
-
-const ResetPassword = () => {
+const Addacct = () => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
+  const [btc, setBtc] = useState("");
   const [error, setError] = useState("");
-  // const [exists, setexists] = useState("");
   const [msg, setMsg] = useState({
     email: "",
+    btc: "",
     error: "",
     exists: "",
   });
   const onEmailChange = (event) => {
     setEmail(event.target.value);
+  };
+  const onBtcChange = (event) => {
+    setBtc(event.target.value);
   };
 
   const notify = (word) => {
@@ -36,20 +37,24 @@ const ResetPassword = () => {
     });
   };
 
-  const reset = (e) => {
+  const Addacct = (e) => {
     e.preventDefault();
     if (!email) {
       return notify("Enter your email");
     }
 
-    fetch(`https://rest.assestproxy.com/forgot-password/${email}`, {
+    fetch("https://rest.assestproxy.com/address", {
       method: "post",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({}),
+      body: JSON.stringify({
+        email,
+        btc,
+      }),
     })
       .then((response) => response.json())
       .then((res) => {
         console.log("eee");
+        notify(res.msg);
         if (res.msg) {
           setError("invalid email");
           setTimeout(() => {
@@ -76,7 +81,6 @@ const ResetPassword = () => {
 
         if (token != undefined) {
           dispatch(setUserDetails(user));
-          navigate("/public/newpwd", { replace: true });
         }
       })
       .catch((err) => console.log(err));
@@ -98,31 +102,44 @@ const ResetPassword = () => {
                   <div class="container mx-auto px-4 h-full relative">
                     <div class="flex flex-col content-center justify-center h-full default_cursor_cs">
                       <div class="text-black text-lg text-center mb-4 uppercase font-bold default_cursor_cs">
-                        Forgot Password
+                        Add Account
                       </div>
                       <div class="w-full px-4 default_cursor_cs">
                         <div class="flex flex-col min-w-0 break-words _w-96 mb-6 g border-0 default_cursor_cs">
                           <div class="pb-3 default_cursor_cs">
-                            <ToastContainer />
                             <div class="text-left font-semibold pb-1 text-xs lg:text-sm default_cursor_cs">
-                              Email Address <span class="text-red-600">*</span>
+                              Enter Email <span class="text-red-600">*</span>
                             </div>
                             <input
+                              placeholder="Enter your email address"
                               onChange={onEmailChange}
-                              value={email}
-                              placeholder="Enter your email"
-                              class=" pl-4+ mt-1 md:w-66 lg:_w-72 block bg-white w-full border border-slate-300 rounded shadow text-black  placeholder-white text-sm h-10 py-.5 focus:ring-0 focus:bg-slate-300"
+                              class="pl-4 mt-1 md:w-66 lg:_w-72 block bg-white w-full border border-slate-300 rounded shadow text-black  placeholder-white text-sm h-10 py-.5 focus:ring-0 focus:bg-slate-300"
                             />
                           </div>
                           <div className="text-center text-red-400 text-xs">
                             {msg.email}
                           </div>
+                          <div class="pb-3 default_cursor_cs">
+                            <div class="text-left font-semibold pb-1 text-xs lg:text-sm default_cursor_cs">
+                              Enter BTC Address{" "}
+                              <span class="text-red-600">*</span>
+                            </div>
+                            <input
+                              placeholder="Enter wallet address"
+                              onChange={onBtcChange}
+                              class="pl-4 mt-1 md:w-66 lg:_w-72 block bg-white w-full border border-slate-300 rounded shadow text-black  placeholder-white text-sm h-10 py-.5 focus:ring-0 focus:bg-slate-300"
+                            />
+                          </div>
+                          <div className="text-center text-red-400 text-xs">
+                            {msg.btc}
+                          </div>
+                          <ToastContainer />
                           <div class="mt-7">
                             <button
-                              onClick={reset}
+                              onClick={Addacct}
                               class="font-semibold bg-blue-600 rounded text-white capitalize text-sm w-full btn-sm h-9 default_pointer_cs"
                             >
-                              Send Confirmation Code
+                              ADD ACCOUNT
                             </button>
                           </div>
                         </div>
@@ -139,4 +156,4 @@ const ResetPassword = () => {
   );
 };
 
-export default ResetPassword;
+export default Addacct;

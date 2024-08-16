@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-// import useRedirect from "../../../hooks/useRedirect";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import bultpay from "../../../images/bultpay3.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Icon from "../../../components/Nav/Icon";
+import { Link } from "react-router-dom";
+import { AiOutlineRollback } from "react-icons/ai";
 import WhiteIcon from "../../../components/Nav/whiteIcon";
 
-const ConfirmWld = () => {
-  // const showToastMessage = () => {
-  //   toast.success("Success !", {
-  //     position: toast.POSITION.TOP_RIGHT,
-  //   });
-  // };
+const BtcWld = () => {
+  let navigate = useNavigate();
   const user = useSelector((state) => state.auth.user_details);
 
   const { email } = user;
@@ -81,15 +78,25 @@ const ConfirmWld = () => {
   };
   return (
     <div className="bg-[#f5f6fa] h-screen">
-      <div aria-current="page" class="active" to="/">
-        {/* <p className="text-[#456fdc] text-2xl font-bold p-3">OCTATRADE</p> */}
-        <WhiteIcon />
+      <div className="flex">
+        <AiOutlineRollback
+          className="text-blue-300"
+          size={34}
+          onClick={() => {
+            navigate("/user/withdraw");
+          }}
+        />
+        <p className="pt-2 font-bold">back</p>
       </div>
+      <Link className="flex justify-center" to="/">
+        {/* <img src={bultpay} className="w-28 p-3  lg:w-36" /> */}
+        <WhiteIcon />
+      </Link>
       <ToastContainer />
       <section class=" md:flex flex-col justify-center font-normal">
         <div class="flex flex-col items-center font-semibold text-2xl px-0 md:px-6 pt-8 h-full">
           <p class="text-lg md:text-3xl text-slate-600 text-center mt-6">
-            Withdraw Funds
+            Withdraw Funds (Btc)
           </p>
           <p class="text-center font-normal text-sm px-2 md:w-1/3 text-slate-600">
             Secure and safely deposit money into your account
@@ -120,7 +127,7 @@ const ConfirmWld = () => {
                 </p>
                 <button
                   onClick={handleWithdrawal}
-                  class="px-3 py-1.5 md:w-72_ md:w-80 lg:w-full md:py-2.5 text-sm bg-[#4e4edc] text-white font-medium rounded uppercase mt-3 md:mt-0"
+                  class="px-3 py-1.5 md:w-72_ md:w-80 lg:w-full md:py-2.5 text-sm bg-red-500 text-white font-medium rounded uppercase mt-3 md:mt-0"
                 >
                   Withdraw
                 </button>
@@ -132,4 +139,4 @@ const ConfirmWld = () => {
     </div>
   );
 };
-export default ConfirmWld;
+export default BtcWld;

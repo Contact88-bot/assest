@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { MdVerified } from "react-icons/md";
 import fig1 from "../../images/fig1.svg";
 import fig2 from "../../images/fig2.svg";
 import fig3 from "../../images/fig3.svg";
@@ -38,7 +39,7 @@ const Homex = () => {
             <div className="flex flex-col md:flex-row md:flex-wrap overflow-y justify-between items-center mx-auto lg:pl-12 lg:pr-8">
               <div className="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-6/12 md:mb-0 xl:mt-0">
                 <span className="hidden md:flex mb-8 text-xs font">{""}</span>
-                <h1 className="mb-8 mt-16 md:mt-2 tracking-wide text-2xl w-9/12 md:w-full md:leading-10 lg:tracking-wide lg:pr-40 font-semibold text-white lg:text-5xl">
+                <h1 className="mb-8 mt-16 md:mt-2 tracking-wide text-2xl w-9/12 md:w-full md:leading-10 lg:tracking-wide lg:pr-36 font-semibold text-white lg:text-5xl">
                   Multi-regulated <br className="md:hidden" />
                   global financial institution
                 </h1>
@@ -49,12 +50,12 @@ const Homex = () => {
                 </p>
                 <div className="flex pl-4 flex-wrap w-7/12 md:w-5/12 mt-2 mx-4 text-left justify-between">
                   <Link className="" to="/public/login">
-                    <button className="border-2 border-[#89a3e3] hover:bg-slate-900 focus:text-blue-300 px-3 md:px-6 uppercase text-xs font-medium py-2 text-white rounded-md">
+                    <button className="border-2 border-white hover:bg-slate-900 focus:text-blue-300 px-3 md:px-6 uppercase text-xs font-medium py-2 text-white rounded-md">
                       Login
                     </button>
                   </Link>
                   <Link to="/public/register">
-                    <button className="border-2 border-[#89a3e3] hover:bg-slate-900 focus:text-blue-300 px-3 md:px-6 uppercase text-xs font-medium py-2 text-white rounded-md">
+                    <button className="border-2 border-white hover:bg-slate-900 focus:text-blue-300 px-3 md:px-6 uppercase text-xs font-medium py-2 text-white rounded-md">
                       SignUp
                     </button>
                   </Link>
@@ -194,13 +195,13 @@ const Homex = () => {
 
       <section className="bg-[#101112] text-white md:px-24 lg:px-36 default_cursor_cs">
         <div className="flex flex-col md:flex-row px-4 justify-between pt-12 default_cursor_cs">
-          <div className="text-4xl font-bold tracking-wide default_cursor_cs">
+          <div className="md:text-4xl text-2xl font-bold tracking-wide default_cursor_cs">
             Save time. Get{" "}
-            <span className="font-semibold text-blue-300">higher return.</span>{" "}
+            <span className="font-semibold text-blue-500">higher return.</span>{" "}
             <br /> Multiply wealth.
           </div>
           <Link className="" to="/public/register">
-            <button className="border-2 mt-8 text-white md:mt-0 tracking-wide border-[#89a3e3] focus:text-blue-300 h-12 px-4 rounded">
+            <button className="border-2 mt-8 text-white md:mt-0 tracking-wide border-blue-500 focus:text-blue-300 h-12 px-4 rounded">
               Join now
             </button>
           </Link>
@@ -256,6 +257,185 @@ const Homex = () => {
               <p className=" mt-6">
                 Discover, collect, and sell extraordinary NFTs.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="flex justify-center">
+          <p className="font-bold tracking-wide lg:text-3xl text-xl text-center mx-5">
+            Complete Package For Every Trader
+          </p>
+        </div>
+        <div className="lg:flex lg:flex-wrap lg:gap-10 lg:justify-center lg:py-10 pt-10">
+          <div className="border-2 border-gray-400 rounded-md lg:w-[350px] lg:mx-0 mx-5">
+            <div className="px-10 py-16">
+              <div className="flex gap-3">
+                <p className="uppercase text-xs font-bold">Minimum Fundings</p>
+                <p className="bg-blue-900 text-white w-fit px-2 rounded-xl font-semibold text-xs tracking-wide">
+                  $100.00
+                </p>
+              </div>
+              <div className="py-2">
+                <h1 className="lg:text-lg uppercase font-medium">
+                  Silver Stacking
+                </h1>
+                <p></p>
+              </div>
+              <div className="py-5">
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">5% ROI per week</p>
+                </div>
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">min. Invest: $ 100.00</p>
+                </div>
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">max invest: $ 1000.00</p>
+                </div>
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">5% Referral</p>
+                </div>
+              </div>
+              <div className="flex justify-center pt-2">
+                <Link to="/public/register">
+                  <button className="bg-blue-900 text-white px-14 rounded-lg py-1">
+                    Open an account
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-2 border-gray-400 rounded-md lg:w-[350px] lg:mx-0 mx-5 lg:my-0 my-10">
+            <div className="px-10 py-16">
+              <div className="flex gap-3">
+                <p className="uppercase text-xs font-bold">Minimum Fundings</p>
+                <p className="bg-blue-900 text-white w-fit px-2 rounded-xl font-semibold text-xs tracking-wide">
+                  $1000.00
+                </p>
+              </div>
+              <div className="py-2">
+                <h1 className="lg:text-lg uppercase font-medium">
+                  Gold Stacking
+                </h1>
+                <p>Recieve even tighter spreads and commissions</p>
+              </div>
+              <div className="py-5">
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">10% ROI per week</p>
+                </div>
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">min. Invest: $ 1000.00</p>
+                </div>
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">max invest: $ 5000.00</p>
+                </div>
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">7% Referral</p>
+                </div>
+              </div>
+              <div className="flex justify-center pt-2">
+                <Link to="/public/register">
+                  <button className="bg-blue-900 text-white px-14 rounded-lg py-1">
+                    Open an account
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="lg:flex lg:flex-wrap lg:gap-10 lg:justify-center ">
+          <div className="border-2 border-gray-400 rounded-md lg:w-[350px] lg:mx-0 mx-5">
+            <div className="px-10 py-16">
+              <div className="flex gap-3">
+                <p className="uppercase text-xs font-bold">Minimum Fundings</p>
+                <p className="bg-blue-900 text-white w-fit px-2 rounded-xl font-semibold text-xs tracking-wide">
+                  $5000.00
+                </p>
+              </div>
+              <div className="py-2">
+                <h1 className="lg:text-lg uppercase font-medium">
+                  Diamond Stacking
+                </h1>
+                <p>Recieve even tighter spreads and commissions</p>
+              </div>
+              <div className="py-5">
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">30% ROI per week</p>
+                </div>
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">min. Invest: $ 5000.00</p>
+                </div>
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">max invest: $ 10000.00</p>
+                </div>
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">10% Referral</p>
+                </div>
+              </div>
+              <div className="flex justify-center pt-2">
+                <Link to="/public/register">
+                  <button className="bg-blue-900 text-white px-14 rounded-lg py-1">
+                    Open an account
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-2 border-gray-400 rounded-md lg:w-[350px] lg:mx-0 mx-5 lg:mt-0 mt-10">
+            <div className="px-10 py-16">
+              <div className="flex gap-3">
+                <p className="uppercase text-xs font-bold">Minimum Fundings</p>
+                <p className="bg-blue-900 text-white w-fit px-2 rounded-xl font-semibold text-xs tracking-wide">
+                  $10000.00
+                </p>
+              </div>
+              <div className="py-2">
+                <h1 className="lg:text-lg uppercase font-medium">
+                  Platinum Stacking
+                </h1>
+                <p>Recieve even tighter spreads and commissions</p>
+              </div>
+              <div className="py-5">
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">50% ROI per week</p>
+                </div>
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">min. Invest: $ 10000.00</p>
+                </div>
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">max invest: $ 99999.99</p>
+                </div>
+                <div className="flex gap-3">
+                  <MdVerified />
+                  <p className="text-sm">13% Referral</p>
+                </div>
+              </div>
+              <div className="flex justify-center pt-2">
+                <Link to="/public/register">
+                  <button className="bg-blue-900 text-white px-14 rounded-lg py-1">
+                    Open an account
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -355,7 +535,7 @@ const Homex = () => {
       </section>
 
       <div className="mt-24 flex flex-col justify-center default_cursor_cs">
-        <div className="text-center text-xl text-gray-800 pb-4 font-bold default_cursor_cs">
+        <div className="text-center text-xl pb-4 font-bold default_cursor_cs">
           Where to buy Cryptocurrencies
         </div>
         <div className="flex flex-col mx-auto md:flex-row md:w-8/12 justify-around items-center default_cursor_cs">
@@ -365,10 +545,11 @@ const Homex = () => {
           </div>
           <div className="mt-4">
             <img src={btc} alt="btc" className="mx-auto default_cursor_cs" />
-            <div className="text-center font-bold py-2 default_cursor_cs" />
-            bitcoin.com
+            <div className="text-center font-bold py-2 default_cursor_cs">
+              bitcoin.com
+            </div>
           </div>
-          <div className="mt-4">
+          <div className="mt-4 w-[170px]">
             <img src={crypto} alt="cry" className="mx-auto default_cursor_cs" />
             <div className="text-center font-bold py-2">Crypto.com</div>
           </div>

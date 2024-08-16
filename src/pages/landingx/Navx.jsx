@@ -17,16 +17,16 @@ const Nav = () => {
   return (
     <div>
       <nav
-        className="lg:px-32 flex px-2 sm:px-4 py-5 fixed w-full z-20 top-0 left-0 "
-        style={{ background: "rgba(22, 22, 26, 0.7)" }}
+        className="lg:px-32 flex px-2 sm:px-4 py-5 fixed w-full z-20 top-0 left-0 bg-proxy-bjlue border-b border-gray-300 border-opacity-40 "
+        style={{ background: "rgba(0, 0, 85, 0.7)" }}
       >
         <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <Icon />
+          <Icon />
           <div className="hidden md:flex md:order-2">
             <Link to="/public/register" className="">
               <button
                 type="button"
-                className="text-black font-semibold bg-[#89a3e3] tracking-wide rounded-lg text-xs px-5 py-3 text-center mr-3 md:mr-0 hover:bg-[#a2b7eb] focus:bg-[#89a3e3]"
+                className="text-black font-semibold bg-white tracking-wide rounded-lg text-xs px-5 py-3 text-center mr-3 md:mr-0 hover:bg-black hover:text-white hover:transition hover:ease-in-out hover:duration-500 ease-out duration-500 hover:border hover:border-white focus:bg-proxy-blue"
               >
                 CREATE ACCOUNT
               </button>
@@ -45,7 +45,7 @@ const Nav = () => {
             className="hidden justify-between items-center flex-1 w-full md:flex md:w-auto md:order-1"
             id="navbar-sticky"
           >
-            <ul className="flex flex-col p-4 mt-4 lg:ml-24 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+            <ul className="flex flex-col p-4 mt-4 lg:ml-24 rounded-lg border border-gray-100 md:flex-row md:space-x-20 md:mt-0 md:text-sm md:font-medium md:border-0 uppercase">
               <li>
                 <Link
                   to="/"
@@ -78,14 +78,14 @@ const Nav = () => {
                   Markets
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to="/user/T&C"
                   className="block py-2 pr-4 pl-3 text-gray-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Terms
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

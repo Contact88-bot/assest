@@ -10,42 +10,45 @@ import Widget2 from "./Widget2";
 import Icon from "../../../components/Nav/Icon";
 import WhiteIcon from "../../../components/Nav/whiteIcon";
 
-const Dashboardx = () => {
+const Dashboardx = ({ login }) => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  const { email } = useSelector((state) => state.auth.user_details);
-  const [user, setUser] = useState({
-    balance: 0,
-    btc: "",
-    deposit: 0,
-    email: "",
-    name: "",
-    phone: "",
-    profits: 0,
-    role: "user",
-    withdrawal: 0,
-  });
-  //console.log({user});
+  const userx = useSelector((state) => state.auth.user_details);
+  // console.log("userdets",user);
 
-  // useEffect(() => {
-  //   fetch("https://zany-gold-perch-sock.cyclic.app/get-profile", {
-  //     method: "post",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify({
-  //       email,
-  //     }),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((res) => {
-  //       const { user } = res;
-  //       console.log({ res });
-  //       console.log(user);
-  //       // console.log(user);
-  //       setUser(user);
-  //     })
-  //     .catch((err) => console.log("errrrrrrr", err));
-  // }, [email]);
+  const [user, setUserx] = useState(userx);
+
+  const [email, setEmail] = useState(user.email);
+  const [name, setName] = useState(user.name);
+
+  useEffect(() => {
+    if (login) {
+      login = false;
+      return;
+    }
+    fetch("https://rest.assestproxy.com/get-profile", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        name,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        // console.log("ttt", res);
+        const { user } = res;
+
+        if (user.blocked) {
+          navigate("/user/blocked", { replace: true });
+        }
+
+        if (!user) return;
+        setUserx(user);
+      })
+      .catch((err) => console.log("error", err));
+  }, [email]);
 
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState("left");
@@ -246,7 +249,7 @@ const Dashboardx = () => {
         <div className="md:flex relative">
           {/* left Section */}
           <section
-            className="hidden md:relative z-10 top-0 left-0 bottom-0 w-full bg-white md:flex md:flex-col md:items-center md:w-4/12 lg:w-1/5 bg-red-5 shadow-lg"
+            className="hidden md:relative z-10 top-0 left-0 bottom-0 w-full bg-white md:flex md:flex-col md:items-center md:w-4/12 lg:h-screen lg:w-1/5 bg-red-5 shadow-lg"
             style={{
               animation: "0.4 ease 0s 1 normal none running overlay-fade-in",
             }}
@@ -460,10 +463,10 @@ const Dashboardx = () => {
                 </span>
               </div>
               <div class="justify-self-center">
-               <WhiteIcon/>
+                <WhiteIcon />
               </div>
               <div class="py-1">
-                <p class="rounded-full w-8 h-8 flex justify-center items-center bg-rose-600">
+                <p class="rounded-full w-8 h-8 flex justify-center items-center bg-[#4e4edc]">
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
@@ -599,7 +602,7 @@ const Dashboardx = () => {
                       <path d="M11 11h2v6h-2zm0-4h2v2h-2z"></path>
                     </svg>
                   </p>
-                  <div class="uppercase text-xs pt-6">This month</div>
+                  {/* <div class="uppercase text-xs pt-6">This month</div> */}
                   <p class="text-2xl font-semibold">${user.profits} USD</p>
                 </div>
                 <div class="py-6 px-3 shadow-lg my-5 mx-5 border border-gray-300 border-b-4 border-b-sky-800 md:w-1/3">
@@ -618,7 +621,7 @@ const Dashboardx = () => {
                       <path d="M11 11h2v6h-2zm0-4h2v2h-2z"></path>
                     </svg>
                   </p>
-                  <div class="uppercase text-xs pt-6">This month</div>
+                  {/* <div class="uppercase text-xs pt-6">This month</div> */}
                   <p class="text-2xl font-semibold">${user.deposit} USD</p>
                 </div>
                 <div class="py-6 px-3 shadow-lg my-5 mx-5 border border-gray-300 border-b-4 border-b-yellow-400 md:w-1/3">
@@ -637,7 +640,7 @@ const Dashboardx = () => {
                       <path d="M11 11h2v6h-2zm0-4h2v2h-2z"></path>
                     </svg>
                   </p>
-                  <div class="uppercase text-xs pt-6">This month</div>
+                  {/* <div class="uppercase text-xs pt-6">This month</div> */}
                   <p class="text-2xl font-semibold">${user.withdrawal} USD</p>
                 </div>
               </div>
